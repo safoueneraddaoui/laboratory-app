@@ -1,0 +1,22 @@
+{{ IsFormInEditMode() ? 'Edit Member' : 'create new member'}}
+<form  class="example-form" [formGroup] = "form"(ngSubmit)="onSubmit()" >
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="cin" formControlName="cin">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="name" formControlName="name">
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="cv" formControlName="cv">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="type" formControlName="type">
+    </mat-form-field>
+    <div class="example-button-row">
+        <button mat-button type="submit" color="primary">Submit</button>
+    </div>
+</form>
