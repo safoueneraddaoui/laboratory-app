@@ -7,32 +7,41 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {EventsComponent} from "./events/events.component";
 import {ArticlesComponent} from "./articles/articles.component";
 import {LoginComponent} from "./login/login.component";
+import {AuthGuard} from "../services/auth.guard";
 
 const routes: Routes = [
-  {
-    path: 'members/:id/edit',
-    pathMatch: 'full',
-    component: MemberFormComponent
-  },
-  {
+    {
     path: 'members',
-    pathMatch: 'full',
-    component: MemberListComponent
-  },
-  {
-    path: 'create',
-    pathMatch: 'full',
-    component: MemberFormComponent
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'members'
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: MemberListComponent,
+        canActivateChild: [AuthGuard],
+      },
+      {
+        path: 'create',
+        pathMatch: 'full',
+        component: MemberFormComponent
+      },
+      {
+        path: ':id/edit',
+        pathMatch: 'full',
+        component: MemberFormComponent
+      },
+      {
+        path: '**',
+        redirectTo: '',
+      }
+    ]
   },
   {
     path: 'dashboard',
     pathMatch: 'full',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'tools',
@@ -54,6 +63,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: LoginComponent
   }];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

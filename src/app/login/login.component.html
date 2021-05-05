@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="h-100-p" fxLayout="column" fxLayoutAlign="center center" id="login-form-wrapper">
+
+  <mat-card class="my-40 mx-16" id="login-form" style="max-width: 360px;">
+    <mat-card-content class="pt-40">
+      <div fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="mat-title mb-20 mt-40"> Lab</div>
+
+        <div (click)="tryGoogleLogin()" class="my-20 w-240 abcRioButton abcRioButtonBlue">
+          <div class="abcRioButtonContentWrapper">
+            <div class="abcRioButtonIcon" style="padding:15px">
+              <div class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18"
+                   style="width:18px;height:18px;">
+
+              </div>
+            </div>
+            <span class="abcRioButtonContents" style="font-size:16px;line-height:48px;">
+              <img src="assets/google.png" style="width:18px;height:18px;"/>
+              <span id="not_signed_inpsj1je4qtaby">  Sign in with Google</span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
